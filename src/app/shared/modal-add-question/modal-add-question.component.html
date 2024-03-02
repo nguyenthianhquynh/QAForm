@@ -1,0 +1,45 @@
+<app-modal [modalBody]="body" [myContext]="myContext">
+    <ng-template #body let-name let-addresses="addresses">
+        <span> {{name}} </span>
+        <div class="my-4">
+            <div class="mb-3 list-group">
+                <div class="mb-1">
+                    <div class="btn-checkbox">
+                        <button (click)="toggleBtn()" type="button"
+                            class="form-control mb-1 btn-checkbox text-start">checkbox list
+                            <ng-container *ngIf="isOpen;else templateName">
+                                <i class="fas fa-angle-up float-end pt-1"></i>
+                            </ng-container>
+                            <ng-template #templateName>
+                                <i class="fas fa-angle-down float-end pt-1"></i>
+                            </ng-template>
+                        </button>
+                        <ng-container *ngIf="isOpen">
+                            <div class="chb-list p-2">
+                                <input class="mb-1" type="text" [(ngModel)]="chbList[0]">
+                                <input class="mb-1" type="text" [(ngModel)]="chbList[1]">
+                                <input class="mb-1" type="text" [(ngModel)]="chbList[2]">
+                                <input class="mb-1" type="text" [(ngModel)]="chbList[3]">
+                                <input class="mb-1" type="text" [(ngModel)]="chbList[4]">
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <form [formGroup]="registerForm" (ngSubmit)="closeDialog()">
+                    <app-text-input [formControl]="registerForm.controls['question']"
+                        [label]="'type question'"></app-text-input>
+
+                    <ul class="text-danger list-unstyled" *ngIf="errors">
+                        <li *ngFor="let error of errors">
+                            {{error}}
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button (click)="closeDialog()" [disabled]="registerForm.invalid" type="button"
+                class="btn btn-primary">Apply</button>
+        </div>
+    </ng-template>
+</app-modal>
