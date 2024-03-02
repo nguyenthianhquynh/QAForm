@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+    --bs-primary: #da291c !important;
+    --bs-primary-rgb: 218, 41, 28 !important;
+}
+
+.list-group-item.active {
+    background-color: #da291c !important;
+    border-color: #da291c !important;
+}
+
+.form-control:focus {
+    border-color: #b02a37 !important;
+    box-shadow: 0 0 0 0.25rem rgba(225, 83, 97, .5) !important;
+}
+
+.mat-stepper-horizontal {
+    margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+}
+
+.mat-step-icon {
+    border-radius: 50%;
+    border: solid 1px black !important;
+    background: white;
+}
+
+.mat-step-icon-selected {
+    background-color: yellowgreen !important;
+}
+
+.dropdown-item:active {
+    background-color: #da291c !important;
+}
+
+.btn-primary {
+    border: 2px solid #da291c !important;
+    background-color: #da291c !important
+}
+
+
+
+/* .cdk-overlay-container {
+    position: fixed;
+    top: 0;
+} */
+
+
+
+.cdk-global-overlay-wrapper{
+    height: 100%;
+    display: flex;
+        position: fixed;
+            top: 0;
+            width: 100%;
+}
